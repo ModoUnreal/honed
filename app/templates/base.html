@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Honed - The News Website Curated By You.</title>
+    </head>
+
+    <body>
+        <header>
+
+            <nav>
+                <div id="title-container">
+                        <div id="title-content">
+                            <h1><a href="{{ url_for('index') }}">Honed</a></h1>
+                        </div>
+                </div>
+    
+                <div id="menu">
+                    <div id="menu-container">
+                        <a href="#submit">Submit</a>
+                        <br>
+                        <a href="#user">{{ current_user.username }}</a>
+    
+                        {% if current_user.is_anonymous %}
+                        <a href="{{ url_for('auth.register') }}">Register</a>
+                        <br>
+                        <a href="{{ url_for('auth.login') }}">Login</a>
+                        {% else %}
+                        <br>
+                        <a href="{{ url_for('auth.logout') }}">Logout</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+    </body>
+</html>
