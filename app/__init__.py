@@ -34,9 +34,11 @@ def create_app(debug=False):
 
     # Import a module / component using its blueprint handler variable (auth)
     from app.auth.controllers import auth as auth_module
+    from app.main.controllers import main as main_module
     
     # Register blueprint(s)
     app.register_blueprint(auth_module, url_prefix='/auth')
+    app.register_blueprint(main_module, url_prefix='/main')
 
     return app
 
