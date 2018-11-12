@@ -1,20 +1,19 @@
 # Import the database objects (db) from the main application module
 # We will define this inside /app/__init__.py in the next sections.
 from app import db
-
-# Define a base model for other database tables to inherit
-class Base(db.Model):
-
-    __abstract__ = True
-
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified=db.Column(db.DateTime, default=db.func.current_timestamp(),
-                                         onupdate=db.func.current_timestamp())
-
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
 # Define a User model
 class User(Base):
+    """Represents a user on the website.
+       Properties:
+       -----------
+       id : A unique integer used to identify users.
+       username : The unique username a user can have that is seen by others.
+       email : The email that will be registered to this account, used to contact.
+       password-hash : An encrypted string that will be used to access a user's account.
+       """
 
     __tablename__ = 'auth_user'
 

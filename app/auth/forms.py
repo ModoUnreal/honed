@@ -12,15 +12,12 @@ from app.auth.models import User
 # Define the login form (WTForms)
 
 class LoginForm(FlaskForm):
-    email = TextField('Email Address', [Email(), 
-        DataRequired(message='Forgot your email address?')])
+    username = StringField('Username', validators=[DataRequired()])
 
     password = PasswordField('Password', [
                 DataRequired(message='You must provide a password. ;-')])
-
-"""So this defines a text field for both email and passwords.
-   The Required function then checks if these fields are inputted correctly,
-   so checks if email == True and if not prints a message."""
+    remember_me = BooleanField('Remember Me')
+    submit = SubmitField('Log In')
 
 
 class RegistrationForm(FlaskForm):

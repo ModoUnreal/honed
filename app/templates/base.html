@@ -6,7 +6,6 @@
 
     <body>
         <header>
-
             <nav>
                 <div id="title-container">
                         <div id="title-content">
@@ -14,8 +13,8 @@
                         </div>
                 </div>
     
-                <div id="menu">
-                    <div id="menu-container">
+                <div id="menu-container">
+                    <div id="menu-content">
                         <a href="#submit">Submit</a>
                         <br>
                         <a href="#user">{{ current_user.username }}</a>
@@ -31,7 +30,11 @@
                     </div>
                 </div>
             </nav>
-
         </header>
+
+        <hr>
+        <br>
+        {% block content %}{% endblock %}
+
     </body>
 </html>

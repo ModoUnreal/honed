@@ -20,7 +20,6 @@ from app.auth.models import User
 # Define the blueprint; 'auth', set its url prefix: app.url/auth
 auth = Blueprint('auth', __name__, url_prefix='/auth')
 
-# I'd preferably put all of this in it's own separate routes.py file next time.
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     """This route is used to login. Uses the login form provided.
